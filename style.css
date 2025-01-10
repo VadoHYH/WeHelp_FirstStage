@@ -105,7 +105,7 @@ main{
     padding: 5px 0;
 }
 
-@media screen and (min-width: 1201px) and (max-width: 1920px){
+@media screen and (min-width: 1200px) and (max-width: 1920px){
     main{
         padding: 20px 0;
     }
@@ -134,7 +134,7 @@ main{
 
 }
 
-@media screen and (min-width:601px) and (max-width:1200px) {
+@media screen and (min-width:600px) and (max-width:1200px) {
     main {
         align-items: stretch;
         width: 90%;
