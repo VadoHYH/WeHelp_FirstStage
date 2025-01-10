@@ -164,11 +164,14 @@ main{
 
     .Titles {
         grid-template-columns: repeat(4, 1fr); 
-        align-items: stretch;
     }
 
     .title:nth-child(9),.title:nth-child(10){
         grid-column: span 2;
+    }
+
+    .title{
+        height: 250px;
     }
 }
 
