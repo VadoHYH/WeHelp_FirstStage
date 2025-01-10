@@ -171,7 +171,7 @@ main{
     }
 }
 
-@media screen and (min-width: 360px) and (max-width:600px) {
+@media screen and (min-width: 359px) and (max-width:600px) {
     main{
         align-items: stretch;
         width: 90%;
