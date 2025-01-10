@@ -89,7 +89,7 @@ main{
 
 .title{
     position: relative;
-    height: 5/3;
+    height: 250px;
     overflow: hidden;
     margin: 10px;
 }
@@ -168,10 +168,6 @@ main{
 
     .title:nth-child(9),.title:nth-child(10){
         grid-column: span 2;
-    }
-
-    .title{
-        height: 250px;
     }
 }
 
