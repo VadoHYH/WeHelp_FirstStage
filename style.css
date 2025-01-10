@@ -50,7 +50,7 @@ body {
 
 .banner p{
     font-size: 200%;
-    margin: 0;
+    margin: 0 auto;
 }
 
 main{
@@ -58,6 +58,7 @@ main{
     flex-direction: column;
     align-items: center;
     box-sizing: border-box;
+    margin: 0 auto;
 }
 
 .promotion {
@@ -141,7 +142,6 @@ main{
     main {
         align-items: stretch;
         width: 90%;
-        margin: 0 auto;
     }
 
     .burger-menu,.popup-menu img{
@@ -170,11 +170,10 @@ main{
     }
 }
 
-@media screen and (min-width: 301px) and (max-width:600px) {
+@media screen and (min-width: 361px) and (max-width:600px) {
     main{
         align-items: stretch;
         width: 90%;
-        margin: 0 auto;
     }
 
     .popup-menu{
