@@ -36,7 +36,8 @@ color: black;
 
 .banner{
     width: 100%;
-    margin: auto;
+    margin: 0px;
+    padding: 0px;
     height: 250px;
     background-color: #DCEBF5;
     display: flex;
