@@ -139,7 +139,7 @@ main{
 
 }
 
-@media screen and (min-width:601px) and (max-width:1200px) {
+@media screen and (min-width:601px) and (max-width:1200.99px) {
     main {
         align-items: stretch;
         width: 90%;
@@ -171,7 +171,7 @@ main{
     }
 }
 
-@media screen and (min-width: 359px) and (max-width:600px) {
+@media screen and (min-width: 359px) and (max-width:600.99px) {
     main{
         align-items: stretch;
         width: 90%;
