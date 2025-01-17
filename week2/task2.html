@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>W2T2</title>
+</head>
+<body>
+  <script>
+    function book(consultants, hour, duration, criteria) {
+
+    if (!consultants[0].schedule) {
+        for (let consultant of consultants) {
+            consultant.schedule = [];
+        }
+    }
+
+    function isAvailable(schedule, start, duration) {
+        let end = start + duration;
+        for (let [bookedStart, bookedEnd] of schedule) {
+            if (!(end <= bookedStart || start >= bookedEnd)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    function bookTime(schedule, start, duration) {
+        schedule.push([start, start + duration]);
+    }
+
+    let availableConsultants = consultants.filter(c => isAvailable(c.schedule, hour, duration));
+
+    if (availableConsultants.length === 0) {
+        console.log("No Service");
+        return;
+    }
+
+    let bestConsultant;
+    if (criteria === "price") {
+        bestConsultant = availableConsultants.reduce((prev, curr) => {
+            if (prev.price < curr.price) {
+                return prev;
+            } else {
+                return curr;
+            }
+    });
+
+    } else if (criteria === "rate") {
+        bestConsultant = availableConsultants.reduce((prev, curr) => {
+            if (prev.rate > curr.rate) {
+                return prev;
+            } else {
+                return curr;
+            }
+    });
+}
+
+    bookTime(bestConsultant.schedule, hour, duration);
+    console.log(bestConsultant.name);
+    }
+
+    const consultants = [
+        { name: "John", rate: 4.5, price: 1000 },
+        { name: "Bob", rate: 3, price: 1200 },
+        { name: "Jenny", rate: 3.8, price: 800 }
+    ];
+
+    book(consultants, 15, 1, "price");  // Jenny
+    book(consultants, 11, 2, "price");  // Jenny
+    book(consultants, 10, 2, "price");  // John
+    book(consultants, 20, 2, "rate");   // John
+    book(consultants, 11, 1, "rate");   // Bob
+    book(consultants, 11, 2, "rate");   // No Service
+    book(consultants, 14, 3, "price");  // John
+    
+  </script>
+</body>
+</html>

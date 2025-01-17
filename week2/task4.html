@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>W2T4</title>
+</head>
+<body>
+    <script>
+        function getNumber(index){
+            final_num=0;
+            rule=[4,4,-1]
+            for(let i=0;i<index;i++){
+                final_num+=rule[i%3];
+            }
+            console.log(final_num);
+            return final_num;
+        }
+        getNumber(1); // print 4
+        getNumber(5); // print 15
+        getNumber(10); // print 25
+        getNumber(30); // print 70
+    </script>
+</body>
+</html>

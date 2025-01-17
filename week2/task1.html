@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>week2</title>
+</head>
+<body>
+
+    <script class="task1">
+        function findAndPrint(messages, currentStation) {
+    
+        function friendStation(message) {
+            const regex = /\b[A-Z][a-z]*\b(?:\s[A-Z][a-z]*\b)*/g;
+            return message.match(regex);
+        }
+
+        function calculateDistance(currentPos, friendPos) {
+            if (Array.isArray(friendPos)) {
+                const mainLine = friendPos[0];
+                const branchDistance = friendPos[1];
+                return Math.abs(currentPos - mainLine) + branchDistance;
+            } else {
+                return Math.abs(currentPos - friendPos);
+            }
+        }
+
+        const glStation = {
+            "Songshan": 0,
+            "Nanjing Sanmin": 1,
+            "Taipei Arena": 2,
+            "Nanjing Fuxing": 3,
+            "Songjiang Nanjing": 4,
+            "Zhongshan": 5,
+            "Beimen": 6,
+            "Ximen": 7,
+            "Xiaonanmen": 8,
+            "Chiang kai-Shek Memorial Hall": 9,
+            "Guting": 10,
+            "Taipower Building": 11,
+            "Gongguan": 12,
+            "Wanlong": 13,
+            "Jingmei": 14,
+            "Dapinglin": 15,
+            "Qizhang": 16,
+            "Xiaobitan": [16, 1], 
+            "Xindian City Hall": 17,
+            "Xindian": 18
+        };
+
+        const currentPos = glStation[currentStation];
+
+        let closestFriend = null;
+        let minDistance = Infinity;
+
+        for (const [friend, message] of Object.entries(messages)) {
+            const stationNames = friendStation(message);
+            if (stationNames) {
+                for (const stationName of stationNames) {
+                    if (glStation[stationName]) {
+                        const friendPos = glStation[stationName];
+                        const distance = calculateDistance(currentPos, friendPos);
+                        if (distance < minDistance) {
+                            minDistance = distance;
+                            closestFriend = friend;
+                        }
+                    }
+                }
+            }
+        }
+
+        if (closestFriend) {
+            console.log(closestFriend);
+        }
+    }
+
+    const messages = {
+        "Bob":"I'm at Ximen MRT station.",
+        "Mary":"I have a drink near Jingmei MRT station.",
+        "Copper":"I just saw a concert at Taipei Arena.",
+        "Leslie":"I'm at home near Xiaobitan station.",
+        "Vivian":"I'm at Xindian station waiting for you."
+    };
+
+    findAndPrint(messages, "Wanlong");  // print Mary
+    findAndPrint(messages, "Songshan");  // print Copper
+    findAndPrint(messages, "Qizhang");  // print Leslie
+    findAndPrint(messages, "Ximen");  // print Bob
+    findAndPrint(messages, "Xindian City Hall");  // print Vivian
+    </script>
+</body>
+</html>
