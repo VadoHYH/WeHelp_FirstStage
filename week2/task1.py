@@ -9,12 +9,17 @@ def find_and_print(messages, current_station):
         return None
 
     def calculate_distance(current_pos, friend_pos):
-        if isinstance(friend_pos, list):
-            main_line = friend_pos[0]
-            branch_distance = friend_pos[1]
-            return abs(current_pos - main_line) + branch_distance
+        if isinstance(current_pos, list):  
+            current_main, current_branch = current_pos
         else:
-            return abs(current_pos - friend_pos)
+            current_main, current_branch = current_pos, 0
+
+        if isinstance(friend_pos, list):  
+            friend_main, friend_branch = friend_pos
+        else:
+            friend_main, friend_branch = friend_pos, 0
+
+        return abs(current_main - friend_main) + abs(current_branch - friend_branch)
 
     glstation = {
         "Songshan": 0,
@@ -56,7 +61,7 @@ def find_and_print(messages, current_station):
                         closest_friend = friend
 
     if closest_friend:
-        print(closest_friend,)
+        print(closest_friend)
 
 messages = {
     "Leslie": "I'm at home near Xiaobitan station.",

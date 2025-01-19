@@ -16,14 +16,28 @@
         }
 
         function calculateDistance(currentPos, friendPos) {
-            if (Array.isArray(friendPos)) {
-                const mainLine = friendPos[0];
-                const branchDistance = friendPos[1];
-                return Math.abs(currentPos - mainLine) + branchDistance;
+            let currentMain, currentBranch;
+            if (Array.isArray(currentPos)) {
+                currentMain = currentPos[0];
+                currentBranch = currentPos[1];
             } else {
-                return Math.abs(currentPos - friendPos);
+                currentMain = currentPos;
+                currentBranch = 0;
             }
+
+            let friendMain, friendBranch;
+            if (Array.isArray(friendPos)) {
+                friendMain = friendPos[0];
+                friendBranch = friendPos[1];
+            } else {
+                friendMain = friendPos;
+                friendBranch = 0;
+            }
+
+            return Math.abs(currentMain - friendMain) + Math.abs(currentBranch - friendBranch);
         }
+
+
 
         const glStation = {
             "Songshan": 0,
@@ -87,6 +101,7 @@
     findAndPrint(messages, "Qizhang");  // print Leslie
     findAndPrint(messages, "Ximen");  // print Bob
     findAndPrint(messages, "Xindian City Hall");  // print Vivian
+    
     </script>
 </body>
 </html>
