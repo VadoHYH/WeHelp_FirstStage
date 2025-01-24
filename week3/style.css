@@ -100,15 +100,19 @@ main{
     object-fit: cover;
 }
 
-.title p{
+.title p {
     position: absolute;
     bottom: 0;
     width: 100%;
     background-color: rgba(255, 255, 255, 0.7);
     text-align: center;
     margin: 0;
-    padding: 5px 0;
-    height: 30px;
+    padding: 5px 10px;  /* 調整左右 padding */
+    height: 40px;
+    overflow: hidden;  /* 隱藏超出的文字 */
+    white-space: nowrap;  /* 禁止換行 */
+    text-overflow: ellipsis;
+    box-sizing: border-box;  /* 確保 padding 不會超出圖片範圍 */
 }
 .load-more {
     height: 50px;
