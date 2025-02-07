@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>登入頁面</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">歡迎光臨，請輸入帳號密碼</div>
+        <p>登入系統</p>
+        <form id="signin-form" action="/signin" method="POST">
+            <label for="username">帳號</label>
+            <input type="text" id="username" name="username" required><br>
+
+            <label for="password">密碼</label>
+            <input type="password" id="password" name="password" required><br>
+
+            <label for="agree">
+                <input type="checkbox" id="agree" name="agree" value="yes"> 我同意條款
+            </label>
+            <br>
+
+            <button type="submit">登入</button>
+        </form>
+        <hr>
+        <p>計算正整數平方</p>
+        <label for="calculateSquare">正整數</label>
+        <input type="text" id="number-input">
+        <button id="calculate-btn">計算</button>
+    </div>
+    <script src="/static/script.js"></script>
+</body>
+</html>
